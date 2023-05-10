@@ -22,9 +22,11 @@ exit_start_ip: "172.168.0.100"
 # geoip_api_user: ""
 own_internal_ip: "172.168.0.254"
 own_internal_netmask: 16
-wg_exit_public_key: "..."
-wg_exit_private_key: "..."
+wg_exit_public_key: "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ=="
+wg_exit_private_key: "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ=="
 wg_tunnel_port: 60000
+wg_v2_tunnel_port: 60001
+cluster_exits: []
 
 ### [localization]
 display_currency_symbol: "true"
@@ -40,7 +42,8 @@ support_number_zeros: 0
 
 ### [network]
 
-exit_mesh_ip: "fd01::1/128"
+#exit_mesh_ip: "fd01::1/128"
+exit_mesh_ip: "fd01::1"
 exit_metric_factor: 1900
 exit_direct_peer_interfaces: []
 exit_direct_peer_vlans: []
@@ -54,8 +57,8 @@ wan_proto: "dhcp"
 # wan_dns:
 #   - "8.8.8.8"
 #   - "8.8.4.4"
-wg_private_key: ""
-wg_public_key: ""
+wg_private_key: "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ=="
+wg_public_key: "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ=="
 
 ### [network.shaper_settings]
 
@@ -65,7 +68,7 @@ network_shaper_enabled: "true"
 
 bridge_enabled: "true"
 debt_limit_enabled: "true"
-eth_private_key: ""
+eth_private_key: "6224eae3cfc77764af02c5cd567085637508a6235b808f48881707a60bd71073"
 free_tier_throughput: 1000
 max_fee: 500000000
 full_nodes: ["https://dai.althea.net:443"]
@@ -73,14 +76,14 @@ system_chain: "Xdai"
 
 ### [verif_settings]
 
-mailer: false
-# email_address: "exit@example.com"
-# smtp_url: "smtp.fastmail.com"
-# smtp_domain: "mail.example.com"
-# smtp_username: "exit@example.com"
-# smtp_password: ""
-# balance_notification_interval: 86400
-# notify_low_balance: "true"
+mailer: true
+email_address: "exit@example.com"
+smtp_url: "smtp.fastmail.com"
+smtp_domain: "mail.example.com"
+smtp_username: "exit@example.com"
+smtp_password: ""
+balance_notification_interval: 86400
+notify_low_balance: "true"
 # test: "false"
 # test_dir: ""
 phone: false
