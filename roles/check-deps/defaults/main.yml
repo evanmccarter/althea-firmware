@@ -105,7 +105,7 @@ fedora_deps:
   - sharutils
   - bison
   - wget
-  - openssl-devel
+  - openssl1.1-devel
   - systemtap-sdt-devel
   - npm
   - time
