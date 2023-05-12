@@ -2,12 +2,12 @@ allowed_countries = {{allowed_country_codes}}
 db_uri = "{{database_uri}}"
 description = "{{description}}"
 remote_log = {{remote_log}}
-workers = "{{workers}}"
+workers = {{workers}}
 
 
 [exit_network]
 entry_timeout = {{entry_timeout}}
-exit_hello_port = "{{exit_hello_port}}"
+exit_hello_port = {{exit_hello_port}}
 exit_price = {{exit_price}}
 exit_start_ip = "{{exit_start_ip}}"
 {% if geoip_api_key is defined %}
@@ -22,6 +22,8 @@ wg_private_key = "{{wg_exit_private_key}}"
 wg_private_key_path = "/tmp/exit-priv"
 wg_public_key = "{{wg_exit_public_key}}"
 wg_tunnel_port = {{wg_tunnel_port}}
+wg_v2_tunnel_port = {{wg_v2_tunnel_port}}
+cluster_exits = {{cluster_exits}}
 
 
 [localization]
@@ -49,7 +51,7 @@ external_nic = "{{external_nic}}"
 light_client_hello_port = 4878
 manual_peers = []
 mesh_ip = "{{exit_mesh_ip}}"
-metric_factor = "{{exit_metric_factor}}"
+metric_factor = {{exit_metric_factor}}
 nickname = "{{nickname}}"
 peer_interfaces = [{% for iface in (exit_direct_peer_interfaces + exit_direct_peer_vlans) %}"{{iface}}"{{ "," if not loop.last else "" }}{% endfor %}]
 rita_contact_port = 4874
@@ -84,7 +86,7 @@ fudge_factor = 0
 gas_price = "1000000000"
 light_client_fee = 0
 local_fee = 0
-max_fee = "{{max_fee}}"
+max_fee = {{max_fee}}
 max_gas = "1000000000"
 min_gas = "1000000000"
 net_version = "100"
@@ -108,8 +110,8 @@ smtp_url = "{{smtp_url}}"
 smtp_domain = "{{smtp_domain}}"
 smtp_username = "{{smtp_username}}"
 smtp_password = "{{smtp_password}}"
-balance_notification_interval = "{{balance_notification_interval}}"
-notify_low_balance = "{{notify_low_balance}}"
+balance_notification_interval = {{balance_notification_interval}}
+notify_low_balance = {{notify_low_balance}}
 test = false
 test_dir = ""
 {% elif phone %}

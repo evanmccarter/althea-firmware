@@ -6,7 +6,7 @@ device_template: "x86_64"
 
 ##### rita-exit.toml variables
 
-allowed_country_codes: "['US']"
+#allowed_country_codes: "['US']"
 database_uri: "postgresql://..."
 description: "Althea Exit Description"
 remote_log: "false"
@@ -24,9 +24,9 @@ own_internal_ip: "172.168.0.254"
 own_internal_netmask: 16
 wg_exit_public_key: "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ=="
 wg_exit_private_key: "YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ=="
-wg_tunnel_port: 60000
-wg_v2_tunnel_port: 60001
-cluster_exits: []
+wg_tunnel_port: 59998
+wg_v2_tunnel_port: 59997
+cluster_exits: "[{'mesh_ip'='fd01::2','eth_address'='1234567890123456789012345678901234567890','wg_public_key'='YWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYQ=='}]"
 
 ### [localization]
 display_currency_symbol: "true"
