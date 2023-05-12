@@ -384,6 +384,8 @@ Now that everything is finally configured you can run ansible to build your exit
 ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
 ```
 
+If a file named like `althea-exit*.ipk` is generated it might be interesting to you.
+You can extract its contents with a command like `tar zxpvf ./althea-exit*.ipk`
 
 
 ### Adding your new exit to an Althea client
