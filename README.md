@@ -372,7 +372,9 @@ diesel migration run --database-url=""
 
 Now that everything is finally configured you can run ansible to build your exit server image
 
-> ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
+```
+ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
+```
 
 
 
