@@ -139,7 +139,7 @@ sudo npm -g install yarn
 
 Finally install [Rust](https://www.rustup.rs/)
 
-    curl https://sh.rustup.rs -sSf | sh
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 Follow the onscreen instructions. Then add Rustup to your PATH. For a default install:
 
@@ -355,7 +355,7 @@ Assuming you have PostgreSQL running and a database URL, proceed:
 
 ```
 # install rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # you may need to install additional dependencies
 # fedora
