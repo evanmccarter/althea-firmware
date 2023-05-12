@@ -126,6 +126,23 @@ fedora_deps:
   - perl
   - postgresql-server
   - python3-devel
+  - postgresql-server
+  - vim
+  - libpq-devel
+  - community-mysql-devel
+  - gcc
+  - libsqlite3x-devel
+  - yamllint
+  - trash-cli
+  - screen
+  - perl
+  - ncurses-devel
+  - patch
+  - openssl1.1-devel
+  - openssl-devel
+  - python3-devel
+  - trash-cli
+  - screen
 
 arch_deps:
   - automake
