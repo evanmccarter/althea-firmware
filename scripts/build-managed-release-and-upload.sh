@@ -39,4 +39,4 @@ ansible-playbook -e @profiles/devices/pi4-64.yml -e @profiles/management/althea-
 # ath79
 ansible-playbook -e @profiles/devices/n750.yml -e @profiles/management/althea-managed.yml firmware-build.yml
 
-rsync -ahz --delete build/bin/targets $SERVER:$HTTP_DIR/supported
+rsync -ahz --delete build/bin/targets "${SERVER}":"${HTTP_DIR}"/supported
