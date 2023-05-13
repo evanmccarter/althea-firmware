@@ -1,5 +1,5 @@
 #!/bin/bash
-DIR=$(dirname $0)
+DIR=$(dirname -- $0)
 diskPath="$DIR/vboxDisks"
 imagePath="$DIR/../../build/bin/targets/x86/generic/openwrt-x86-generic-combined-squashfs.vdi"
 

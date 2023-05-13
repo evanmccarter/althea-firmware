@@ -1,6 +1,7 @@
 #!/bin/bash
 set -ux
-cd $(dirname $0)/..
+dirname_0="$(dirname -- "${0}")"
+cd "${dirname_0}"/..
 export SERVER=updates
 export HTTP_DIR=/usr/share/nginx/html/
 
