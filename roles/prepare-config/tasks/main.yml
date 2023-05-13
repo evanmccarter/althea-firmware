@@ -27,10 +27,10 @@
   with_items: "{{feeds_list}}"
 
 - name: Update feeds
-  shell: "cd {{source_dir}}; ./scripts/feeds update -a"
+  shell: "cd {{source_dir}} && ./scripts/feeds update -a"
 
 - name: Grab feeds
-  shell: "cd {{source_dir}}; ./scripts/feeds install -a"
+  shell: "cd {{source_dir}} && ./scripts/feeds install -a"
 
 - name: Copy in config
   copy:

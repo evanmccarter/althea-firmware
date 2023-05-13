@@ -4,7 +4,7 @@
 - name: Build firmware when not CI
   block:
     - name: Download files required for build
-      shell: "cd {{source_dir}}; make -j{{ansible_processor_vcpus|int}} download"
+      shell: "cd {{source_dir}} && make -j{{ansible_processor_vcpus|int}} download"
       register: download_result
       ignore_errors: true
 
