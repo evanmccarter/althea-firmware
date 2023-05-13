@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e && {
 set -ux
 dirname_0="$(dirname -- "${0}")"
 cd "${dirname_0}"/.. || exit
@@ -9,3 +10,4 @@ ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-
 
 rsync -ahz --delete build/bin/packages "${SERVER}":"${HTTP_DIR}"/rc/
 rsync -ahz --delete build/bin/targets "${SERVER}":"${HTTP_DIR}"/
+}
