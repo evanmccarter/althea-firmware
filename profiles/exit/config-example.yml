@@ -7,6 +7,7 @@ device_template: "x86_64"
 ##### rita-exit.toml variables
 
 #allowed_country_codes: "['US']"
+allowed_country_codes: "[]"
 database_uri: "postgresql://..."
 description: "Althea Exit Description"
 remote_log: "false"
