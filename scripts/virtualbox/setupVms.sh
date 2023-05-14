@@ -39,9 +39,7 @@ do
 	sleep 5
 done
 
-node1Script="sed -i '31,50d' /etc/config/network"
-
-ssh -o "StrictHostKeyChecking no" root@192.168.70.2 ${node1Script}
+ssh -o "StrictHostKeyChecking no" root@192.168.70.2 sed -i '31,50d' /etc/config/network
 
 ###Node2###
 while ! ssh root@192.168.70.10 -n -o "StrictHostKeyChecking no"
@@ -50,12 +48,7 @@ do
 	sleep 1
 done
 
-node2Script="sed -i 's/192\.168\.2\.1/192\.168\.2\.2/' /etc/config/network;\
-	sed -i '23s/192\.168\.2\.2/192\.168\.2\.1/' /etc/config/network;\
-	sed -i 's/10\.0\.0\.2/10\.0\.0\.3/' /etc/config/network"
-
-
-ssh -o "StrictHostKeyChecking no" root@192.168.70.10 ${node2Script}
+ssh -o "StrictHostKeyChecking no" root@192.168.70.10 sed -i 's/192\.168\.2\.1/192\.168\.2\.2/' /etc/config/network '&&' sed -i '23s/192\.168\.2\.2/192\.168\.2\.1/' /etc/config/network '&&' sed -i 's/10\.0\.0\.2/10\.0\.0\.3/' /etc/config/network
 
 ##Node3##
 while ! ssh root@192.168.70.18 -n -o "StrictHostKeyChecking no"
@@ -64,13 +57,7 @@ do
 	sleep 1
 done
 
-node3Script="sed -i 's/192\.168\.2\.1/192\.168\.3\.2/' /etc/config/network;\
-	sed -i 's/192\.168\.2\.2/192\.168\.3\.1/' /etc/config/network;\
-	sed -i 's/10\.0\.0\.2/10\.0\.0\.5/' /etc/config/network;\
-	sed -i '31,50d' /etc/config/network"
-
-
-ssh -o "StrictHostKeyChecking no" root@192.168.70.18 ${node3Script}
+ssh -o "StrictHostKeyChecking no" root@192.168.70.18 sed -i 's/192\.168\.2\.1/192\.168\.3\.2/' /etc/config/network '&&' sed -i 's/192\.168\.2\.2/192\.168\.3\.1/' /etc/config/network '&&' sed -i 's/10\.0\.0\.2/10\.0\.0\.5/' /etc/config/network '&&' sed -i '31,50d' /etc/config/network
 
 ##Reboot##
 ssh -o "StrictHostKeyChecking no" root@192.168.70.2 reboot
