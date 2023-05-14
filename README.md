@@ -81,23 +81,29 @@ First off you need a Linux machine with at least 15gb of free disk space,
 
 On Ubuntu < 18.04 and Debian:
 
-> curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-
-> python get-pip.py
-
-> pip install --user ansible
+```
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+pip install --user ansible
+```
 
 On Ubuntu >= 18.04:
 
-> sudo apt-get install ansible
+```
+sudo apt-get install ansible
+```
 
 On Fedora:
 
-> sudo dnf install ansible
+```
+sudo dnf install ansible
+```
 
 On Centos and RHEL:
 
-> sudo yum install ansible
+```
+sudo yum install ansible
+```
 
 Once you have Ansible you can use it to manage the rest of the dependencies:
 
@@ -180,7 +186,9 @@ To build the firmware for your device run, replacing '\<Hardware Config\>' with
 the value from the table above and '\<Management Profile\>' with a profile that
 has been customized to your needs:
 
-> ansible-playbook firmware-build.yml -e @profiles/devices/\<Hardware Config\>.yml -e@profiles/management/\<Management Profile\>.yml
+```
+ansible-playbook firmware-build.yml -e @profiles/devices/\<Hardware Config\>.yml -e@profiles/management/\<Management Profile\>.yml
+```
 
 This will take a long time, especially the first run. Nearly an hour on a fast
 machine and several on a slower one. After the first run things should be much
@@ -372,8 +380,12 @@ diesel migration run --database-url=""
 
 Now that everything is finally configured you can run ansible to build your exit server image
 
-> ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
+```
+ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
+```
 
+If a file named like `althea-exit*.ipk` is generated it might be interesting to you.
+You can extract its contents with a command like `tar zxpvf ./althea-exit*.ipk`
 
 
 ### Adding your new exit to an Althea client
