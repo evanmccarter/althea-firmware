@@ -32,6 +32,7 @@ vboxmanage startvm AltheaTest1
 vboxmanage startvm AltheaTest2
 vboxmanage startvm AltheaTest3
 
+###Node1###
 while ! ssh root@192.168.70.2 -n -o "StrictHostKeyChecking no"
 do
 	echo "trying to connect via ssh"
@@ -40,9 +41,9 @@ done
 
 node1Script="sed -i '31,50d' /etc/config/network"
 
-###Node1###
 ssh -o "StrictHostKeyChecking no" root@192.168.70.2 ${node1Script}
 
+###Node2###
 while ! ssh root@192.168.70.10 -n -o "StrictHostKeyChecking no"
 do
 	echo "trying to connect via ssh"
@@ -54,9 +55,9 @@ node2Script="sed -i 's/192\.168\.2\.1/192\.168\.2\.2/' /etc/config/network;\
 	sed -i 's/10\.0\.0\.2/10\.0\.0\.3/' /etc/config/network"
 
 
-###Node2###
 ssh -o "StrictHostKeyChecking no" root@192.168.70.10 ${node2Script}
 
+##Node3##
 while ! ssh root@192.168.70.18 -n -o "StrictHostKeyChecking no"
 do
 	echo "trying to connect via ssh"
@@ -69,7 +70,6 @@ node3Script="sed -i 's/192\.168\.2\.1/192\.168\.3\.2/' /etc/config/network;\
 	sed -i '31,50d' /etc/config/network"
 
 
-##Node3##
 ssh -o "StrictHostKeyChecking no" root@192.168.70.18 ${node3Script}
 
 ##Reboot##
