@@ -141,7 +141,7 @@ Arch:
 
 You can then install Yarn using npm
 
-sudo npm -g install yarn
+    sudo npm -g install yarn
 
 Finally install [Rust](https://www.rustup.rs/)
 
