@@ -355,8 +355,12 @@ host    all             all             127.0.0.1/32            trust
 # IPv6 local connections:
 host    all             all             ::1/128                 trust
 
+exit
+sudo systemctl restart postgresql.service
+
 # now you should be able to do: 
 psql "postgresql://exituser:exitpassword@localhost/exitdb"
+exitdb=> \q
 ```
 
 Assuming you have PostgreSQL running and a database URL, proceed:
@@ -367,7 +371,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # you may need to install additional dependencies
 # fedora
-sudo dnf install libpq-devel community-mysql-devel
+sudo dnf install libpq-devel community-mysql-devel cargo
 
 # install diesel
 cargo install diesel_cli
@@ -376,6 +380,7 @@ git clone https://github.com/althea-net/althea_rs
 # run the migrations
 cd althea_rs/exit_db
 diesel migration run --database-url=""
+cd ../..
 ```
 
 Now that everything is finally configured you can run ansible to build your exit server image

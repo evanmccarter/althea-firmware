@@ -105,7 +105,7 @@ fedora_deps:
   - sharutils
   - bison
   - wget
-  - openssl1.1-devel
+  - openssl-devel
   - systemtap-sdt-devel
   - npm
   - time
@@ -120,12 +120,11 @@ fedora_deps:
   - libpq-devel
   - libsqlite3x-devel
   - ncurses-devel
-  - openssl1.1-devel
-  - openssl-devel
   - patch
   - perl
   - postgresql-server
   - python3-devel
+  - cargo
 
 arch_deps:
   - automake
