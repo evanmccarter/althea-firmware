@@ -381,6 +381,7 @@ git clone https://github.com/althea-net/althea_rs
 cd althea_rs/exit_db
 diesel migration run --database-url=""
 cd ../..
+sudo dnf install openssl1.1-devel
 ```
 
 Now that everything is finally configured you can run ansible to build your exit server image
