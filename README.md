@@ -406,7 +406,7 @@ You may need to install additional dependencies, e.g. run this with fedora:
 
 ```
 sudo dnf install libpq-devel community-mysql-devel cargo &&
-sudo dnf install openssl1.1-devel
+sudo dnf install --allowerasing openssl1.1-devel
 ```
 
 #### install diesel
