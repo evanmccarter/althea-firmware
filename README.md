@@ -105,6 +105,8 @@ On Centos and RHEL:
 sudo yum install ansible
 ```
 
+### Standard Setup
+
 Once you have Ansible you can use it to manage the rest of the dependencies:
 
 ```
@@ -115,6 +117,8 @@ ansible-playbook first-time-setup.yml -bK
 
 Type in your password to give Ansible permissions to install the required
 packages. This will also install Rust and add it to your PATH in your bashrc.
+
+### Nonstandard Setup
 
 If you have a nonstandard setup, or just don't trust Ansible with root
 you may want to install dependencies manually using these commands.
