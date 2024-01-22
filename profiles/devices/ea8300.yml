@@ -1,9 +1,9 @@
-conf_to_build: ea6350v3
-device: "linksys_ea6350v3"
+conf_to_build: ea8300
+device: "linksys_ea8300"
 package_id: arm_cortex-a7_neon-vfpv4
 image_paths:
-  - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_ea6350v3-squashfs-sysupgrade.bin"
-  - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_ea6350v3-squashfs-factory.bin"
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_ea8300-squashfs-sysupgrade.bin"
+  - "ipq40xx/generic/openwrt-ipq40xx-generic-linksys_ea8300-squashfs-factory.bin"
 supported: true
 
 channel: 11
