@@ -333,7 +333,7 @@ and `twillio_auth_token`, it will send an auth code from `send_number`
 Finally you need to generate another set of keys and uncomment the appropriate blockchain full nodes and settings. 
 You must also select an arbitrary valid ipv6 address out of the fd00::/8 range
 
-When setting up a new postgres database you'll need to run the migrations [here](https://github.com/althea-net/althea_rs/tree/master/exit_db)
+When setting up a new postgres database you'll need to run the migrations [here](https://github.com/althea-net/rita/tree/HEAD/integration_tests/src/setup_utils/migrations/)
 
 Installing and running PostgreSQL is a large topic not fully described here.
 A simple TLDR to install locally on Fedora:
