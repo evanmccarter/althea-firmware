@@ -341,33 +341,52 @@ When setting up a new postgres database you'll need to run the migrations [here]
 
 Installing and running PostgreSQL is a large topic not fully described here.
 A simple TLDR to install locally on Fedora:
-```
-sudo dnf install postgresql-server
-sudo /usr/bin/postgresql-setup --initdb
-sudo systemctl enable postgresql.service
-sudo systemctl start postgresql.service
+```console
+$ sudo dnf install postgresql-server
+$ sudo /usr/bin/postgresql-setup --initdb
+ * Initializing database in '/var/lib/pgsql/data'
+ * Initialized, logs are in /var/lib/pgsql/initdb_postgresql.log
+$ sudo systemctl enable postgresql.service
+$ sudo systemctl start postgresql.service
+$ sudo su - postgres 
+$ psql postgres
+psql (15.4)
+Type "help" for help.
 
-sudo su - postgres 
-psql postgres
 postgres=# create database exitdb;
+CREATE DATABASE
 postgres=# create user exituser with encrypted password 'exitpassword';
+CREATE ROLE
 postgres=# grant all privileges on database exitdb to exituser;
+GRANT
 postgres=# exit
-nano data/pg_hba.conf
+$ nano data/pg_hba.conf
+```
 
-# make sure the following lines end with 'trust' or 'md5'
+Make sure the following lines end with 'trust' or 'md5':
+
+```
 # "local" is for Unix domain socket connections only
 local   all             all                                     trust
 # IPv4 local connections:
 host    all             all             127.0.0.1/32            trust
 # IPv6 local connections:
 host    all             all             ::1/128                 trust
+```
 
-exit
-sudo systemctl restart postgresql.service
+```console
+$ exit
+logout
+$ sudo systemctl restart postgresql.service
+```
 
-# now you should be able to do: 
-psql "postgresql://exituser:exitpassword@localhost/exitdb"
+Now you should be able to produce a shell session like this:
+
+```console
+$ psql "postgresql://exituser:exitpassword@localhost/exitdb"
+psql (15.4)
+Type "help" for help.
+
 exitdb=> \q
 ```
 
@@ -375,23 +394,36 @@ exitdb=> \q
 
 Assuming you have PostgreSQL running and a database URL, proceed:
 
+#### Install rust
+
 ```
-# install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+```
 
-# you may need to install additional dependencies
-# fedora
-sudo dnf install libpq-devel community-mysql-devel cargo
+#### Install more packages
 
-# install diesel
-cargo install diesel_cli
-# clone althea_rs
-git clone https://github.com/althea-net/althea_rs
-# run the migrations
-cd althea_rs/exit_db
-diesel migration run --database-url=""
-cd ../..
+You may need to install additional dependencies, e.g. run this with fedora:
+
+```
+sudo dnf install libpq-devel community-mysql-devel cargo &&
 sudo dnf install openssl1.1-devel
+```
+
+#### install diesel
+
+```
+cargo install diesel_cli
+```
+
+#### Run migrations
+
+```
+git clone https://github.com/althea-net/rita &&
+# run the migrations
+cd rita/integration_tests/src/setup_utils/migrations &&
+sed -i.bak -e 's/^/-- /' -- 00000000000000_diesel_initial_setup/up.sql &&
+diesel migration run --database-url="" &&
+cd ../../../../..
 ```
 
 ### Build the Exit server
