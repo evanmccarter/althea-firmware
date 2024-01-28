@@ -316,6 +316,8 @@ We may switch the firmwares to meshing on built in wifi by default if there's a 
 An Althea Exit server is essentially a WireGuard proxy server setup to integrate
 with the mesh network.
 
+### Creating a configuration file
+
 Copy the file `profiles/exit/config-example.yml` to `profiles/exit/config.yml` and modify it as needed.
 
 There's a lot of data that goes into the config file for an exit.  
@@ -332,6 +334,8 @@ and `twillio_auth_token`, it will send an auth code from `send_number`
 
 Finally you need to generate another set of keys and uncomment the appropriate blockchain full nodes and settings. 
 You must also select an arbitrary valid ipv6 address out of the fd00::/8 range
+
+### Getting access to a postgres database
 
 When setting up a new postgres database you'll need to run the migrations [here](https://github.com/althea-net/rita/tree/HEAD/integration_tests/src/setup_utils/migrations/)
 
@@ -367,6 +371,8 @@ psql "postgresql://exituser:exitpassword@localhost/exitdb"
 exitdb=> \q
 ```
 
+### Miscellaneous setup
+
 Assuming you have PostgreSQL running and a database URL, proceed:
 
 ```
@@ -387,6 +393,8 @@ diesel migration run --database-url=""
 cd ../..
 sudo dnf install openssl1.1-devel
 ```
+
+### Build the Exit server
 
 Now that everything is finally configured you can run ansible to build your exit server image
 
