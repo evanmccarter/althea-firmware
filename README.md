@@ -406,8 +406,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 You may need to install additional dependencies, e.g. run this with fedora:
 
 ```
-sudo dnf install libpq-devel community-mysql-devel cargo &&
-sudo dnf install --allowerasing openssl1.1-devel
+sudo dnf install libpq-devel community-mysql-devel cargo
 ```
 
 #### install diesel
@@ -425,6 +424,12 @@ cd rita/integration_tests/src/setup_utils/migrations &&
 sed -i.bak -e 's/^/-- /' -- 00000000000000_diesel_initial_setup/up.sql &&
 diesel migration run --database-url="" &&
 cd ../../../../..
+```
+
+#### Install another useful package
+
+```
+sudo dnf install --allowerasing openssl1.1-devel
 ```
 
 ### Build the Exit server
