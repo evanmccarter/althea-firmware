@@ -347,6 +347,7 @@ $ sudo /usr/bin/postgresql-setup --initdb
  * Initializing database in '/var/lib/pgsql/data'
  * Initialized, logs are in /var/lib/pgsql/initdb_postgresql.log
 $ sudo systemctl enable postgresql.service
+Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
 $ sudo systemctl start postgresql.service
 $ sudo su - postgres 
 $ psql postgres
