@@ -383,7 +383,7 @@ sudo dnf install openssl1.1-devel
 Now that everything is finally configured you can run ansible to build your exit server image
 
 ```
-ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/althea-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
+ansible-playbook -e @profiles/devices/x86_64.yml -e @profiles/management/hawk-managed.yml -e @profiles/exit/config-example.yml firmware-build.yml
 ```
 
 If a file named like `althea-exit*.ipk` is generated it might be interesting to you.
